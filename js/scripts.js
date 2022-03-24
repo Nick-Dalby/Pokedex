@@ -19,13 +19,20 @@ let pokemonRepository = (function () {
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
+    let divItem = document.createElement('div');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('btn', 'btn-primary');
-    listItem.classList.add('group-list-item');
+    button.classList.add('btn', 'btn-primary', 'text-capitalize', 'btn-block');
+    divItem.classList.add(
+      'list-group-item',
+      'd-flex',
+      'justify-content-around'
+    );
+    listItem.classList.add('list-item', 'col-sm-4');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokedexModal');
-    listItem.appendChild(button);
+    listItem.appendChild(divItem);
+    divItem.appendChild(button);
     pokemonList.appendChild(listItem);
 
     // on click event listener returns show details function
@@ -102,14 +109,14 @@ let pokemonRepository = (function () {
     modalBody.append(sprite);
 
     modalBody.append(
-      '<p>Height: ' +
+      '<p class="text-capitalize">height: ' +
         height +
         '<br>' +
-        'Weight: ' +
+        'weight: ' +
         weight +
         '<br>' +
-        'Type: ' +
-        type.join(', ') +
+        'type: ' +
+        type.join(' & ') +
         '</p>'
     );
   }
