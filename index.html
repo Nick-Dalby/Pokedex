@@ -14,9 +14,10 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <h1>Pokedex</h1>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="#"><h1>Pokedex:</h1></a>
+    </nav>
 
-    <!-- Modal -->
     <div
       class="modal fade"
       id="pokedexModal"
@@ -28,7 +29,10 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title pokemon-name" id="pokedexModalTitle">
+            <h2
+              class="modal-title pokemon-name text-capitalize"
+              id="pokedexModalTitle"
+            >
               Modal title
             </h2>
             <button
@@ -44,9 +48,8 @@
         </div>
       </div>
     </div>
-
-    <div>
-      <ul class="pokemon-list list-unstyled list-group"></ul>
+    <div class="container mt-5 pt-5">
+      <ul class="pokemon-list list-unstyled row"></ul>
     </div>
 
     <script
