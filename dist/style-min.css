@@ -10,7 +10,7 @@
 .pokemon-list .btn {
   min-width: 150px;
   height: 150px;
-  background-image: url('pokedex/assets/pokeball.png');
+  background-image: url('assets/pokeball.png');
   background-size: 80px;
   background-repeat: no-repeat;
   background-position: 50% 40%;
