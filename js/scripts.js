@@ -148,16 +148,16 @@ function pokemonSearch() {
   for (var i = 0; i < pokeBalls.length; i++) {
     // If the text is within the card...
     if (
-      cards[i].innerText
+      pokeBalls[i].innerText
         .toLowerCase()
         // ...and the text matches the search query...
         .includes(search_query.toLowerCase())
     ) {
       // ...remove the `.hide` class.
-      cards[i].classList.remove('hide');
+      pokeBalls[i].classList.remove('hide');
     } else {
       // Otherwise, add the class.
-      cards[i].classList.add('hide');
+      pokeBalls[i].classList.add('hide');
     }
   }
 }
