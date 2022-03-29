@@ -22,13 +22,13 @@ let pokemonRepository = (function () {
     let divItem = document.createElement('div');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('btn', 'btn-primary', 'text-capitalize', 'btn-block');
+    button.classList.add('btn', 'btn-primary', 'text-capitalize');
     divItem.classList.add(
       'list-group-item',
       'd-flex',
       'justify-content-around'
     );
-    listItem.classList.add('list-item', 'col-sm-4');
+    listItem.classList.add('list-item', 'col');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokedexModal');
     listItem.appendChild(divItem);
@@ -40,6 +40,7 @@ let pokemonRepository = (function () {
       showDetails(pokemon);
     });
   }
+
   // using fetch to return pokemon list from pokedex api url defined previously
   function loadList() {
     return fetch(apiUrl)
@@ -98,27 +99,23 @@ let pokemonRepository = (function () {
   function showModal(name, height, weight, imageUrl, type) {
     let modalTitle = $('.modal-title');
     let modalBody = $('.modal-body');
-    let sprite = $('<img class="sprite">');
 
     modalTitle.empty();
     modalBody.empty();
 
     modalTitle.text(name);
 
-    sprite.attr('src', imageUrl);
-    modalBody.append(sprite);
+    let spriteElement = document.createElement('img');
+    spriteElement.src = imageUrl;
 
-    modalBody.append(
-      '<p class="text-capitalize">height: ' +
-        height +
-        '<br>' +
-        'weight: ' +
-        weight +
-        '<br>' +
-        'type: ' +
-        type.join(' & ') +
-        '</p>'
-    );
+    modalBody.append(spriteElement);
+
+    let contentElement = document.createElement('p');
+    contentElement.innerText = `Height: ${height * 10}cm
+      Weight: ${weight / 10}kg
+      Type: ${type.join(' & ')}`;
+
+    modalBody.append(contentElement);
   }
 
   return {
@@ -139,3 +136,28 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+// filtering the pokemon list with the search bar
+
+function pokemonSearch() {
+  // Locate the list items elements
+  let pokeBalls = document.querySelectorAll('.list-item');
+  // Locate the search input
+  let search_query = document.getElementById('search').value;
+  // Loop through the list
+  for (var i = 0; i < pokeBalls.length; i++) {
+    // If the text is within the card...
+    if (
+      cards[i].innerText
+        .toLowerCase()
+        // ...and the text matches the search query...
+        .includes(search_query.toLowerCase())
+    ) {
+      // ...remove the `.hide` class.
+      cards[i].classList.remove('hide');
+    } else {
+      // Otherwise, add the class.
+      cards[i].classList.add('hide');
+    }
+  }
+}
