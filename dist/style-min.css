@@ -1,3 +1,5 @@
+/* styles not covered in bootstrap */
+
 .list-group-item {
   border: none;
   padding: 15px 2px;
@@ -8,11 +10,7 @@
 .pokemon-list .btn {
   min-width: 150px;
   height: 150px;
-<<<<<<< HEAD
   background-image: url('../assets/pokeball.png');
-=======
-  background-image: url('/assets/pokeball.png');
->>>>>>> 9dc12221097d271dd3740a0bda3124db34a66ab2
   background-size: 80px;
   background-repeat: no-repeat;
   background-position: 50% 40%;
