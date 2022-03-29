@@ -8,6 +8,6 @@ Simple Pokedex app which loads a list of Pokemon from an external API and retrie
 - JS
 
 ## Libraries:
-[Pokeapi](https://pokeapi.co/)
-Bootstrap
-fetch and promise js polyfills
+- [Pokeapi](https://pokeapi.co/)
+- Bootstrap
+- fetch and promise js polyfills
